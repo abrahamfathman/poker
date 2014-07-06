@@ -9,16 +9,25 @@ enum Rank {
   ,R8(8,"8")
   ,R9(9,"9")
   ,R10(10,"10")
-  ,RJ(11,"J")
-  ,RQ(12,"Q")
-  ,RK(13,"K")
-  ,RA(14,"A")
+  ,RJ(11,"J","Jack")
+  ,RQ(12,"Q","Queen")
+  ,RK(13,"K","King")
+  ,RA(14,"A","Ace")
   
   int value
+  String shortCode
   String display
-  
-  Rank(value,display){
+
+  Rank(value,shortCode){
     this.value = value
+    this.shortCode = shortCode
+    this.display = this.shortCode // default it to the shortCode
+  }
+
+    
+  Rank(value,shortCode,display){
+    this.value = value
+    this.shortCode = shortCode
     this.display = display
   }
 }

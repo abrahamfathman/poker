@@ -11,7 +11,6 @@ class Hand {
   }
   
   void calculateScoringHands(){
-//    calculateScoringHands()
     scoringHands << new HighCard(this)
     scoringHands << new Pair(this)
     scoringHands = scoringHands.grep{ it-> it.handScore != 0 }

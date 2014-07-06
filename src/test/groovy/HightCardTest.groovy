@@ -2,14 +2,18 @@ import org.junit.Test;
 
 
 class HightCardTest {
-  
+
+  @Test
+  void should_default_to_ScoringHand_for_score(){
+    assert new HighCard(new Hand(["9C","8H"])) < new Pair(new Hand(["7H","7D"])) 
+  }
+    
   @Test
   void should_score_correct_high_card_above_the_other(){
     assert new HighCard(new Hand(["2C"])) < new HighCard(new Hand(["3C"]))
     assert new HighCard(new Hand(["6C"])) > new HighCard(new Hand(["4D"]))
     assert new HighCard(new Hand(["JH"])) == new HighCard(new Hand(["JD"]))
   }
-  
   
   @Test
   void should_score_correct_high_card_hand_above_the_other(){

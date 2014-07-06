@@ -15,6 +15,13 @@ public class CardTest {
     assert c.suit == Suit.D
     assert c.rank == Rank.RA
   }
+  
+  @Test
+  void should_create_a_10(){
+    def c = new Card("10D")
+    assert c.suit == Suit.D
+    assert c.rank == Rank.R10
+  }
 
   @Test
   void should_determine_the_higher_ranking_card(){
@@ -32,5 +39,20 @@ public class CardTest {
     assert new Card("2C") < new Card("3C")
 
   }
-    
+  
+  @Test
+  void should_determine_cards_are_equal(){
+    assert new Card("5H") == new Card("5H") 
+  }
+
+  @Test
+  void should_determine_cards_have_the_same_hashcode(){
+    assert new Card("5H").hashCode() == new Card("5H").hashCode()
+  }
+  
+  @Test
+  void should_have_a_readable_to_string(){
+    assert "2C" == new Card("2C").toString()
+  }
+
 }
