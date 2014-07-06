@@ -1,0 +1,23 @@
+import java.util.List;
+
+
+class Hand {
+  def cards
+  def scoringHands = []
+
+  Hand(List<String> cards){
+    this.cards = cards.collect{new Card(it)}
+    calculateScoringHands()
+  }
+  
+  void calculateScoringHands(){
+//    calculateScoringHands()
+    scoringHands << new HighCard(this)
+    scoringHands << new Pair(this)
+    scoringHands = scoringHands.grep{ it-> it.handScore != 0 }
+  }
+  
+  String toString(){
+    cards.toListString()
+  }
+}
