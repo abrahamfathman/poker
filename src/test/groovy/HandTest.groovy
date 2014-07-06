@@ -22,7 +22,6 @@ class HandTest {
   @Test
   void should_create_scoring_hands_for_high_card(){
     def hand = new Hand(["10H","3D","2C","6S","4S"])
-    //hand.calculateScoringHands()
     def scoringHands = hand.scoringHands
     assert 1 == scoringHands.size()
     assert scoringHands[0] instanceof HighCard
@@ -31,7 +30,6 @@ class HandTest {
   @Test
   void should_create_scoring_hands_for_pair_and_high_card(){
     def hand = new Hand(["10H","3D","2C","6S","6C"])
-    //hand.calculateScoringHands()
     def scoringHands = hand.scoringHands
     assert 2 == scoringHands.size()
     assert scoringHands[0] instanceof HighCard
