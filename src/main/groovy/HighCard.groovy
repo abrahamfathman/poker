@@ -2,7 +2,7 @@
 class HighCard
   implements ScoringHand{
   
-  HandStrength getHandStrength(){HandStrength.HIGH_CARD}
+  HandStrength handStrength = HandStrength.HIGH_CARD
   boolean relevant=true
   
   def hand
@@ -10,9 +10,6 @@ class HighCard
   HighCard(hand){this.hand=hand}
 
   int compareTo(altObj){
-    
-    if( this.class != altObj.class )
-      return this.handStrength.value.compareTo(altObj.handStrength.value)
     
     def sortedCards = this.hand.cards.sort().reverse()
     def altSortedCards = altObj.hand.cards.sort().reverse()

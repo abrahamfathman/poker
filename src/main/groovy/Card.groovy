@@ -13,7 +13,7 @@ public class Card
   }
   
   int compareTo( altObj ){
-    this.rank.value.compareTo(altObj.rank.value)
+    this.rank.compareTo(altObj.rank)
   }
   
   String toString(){

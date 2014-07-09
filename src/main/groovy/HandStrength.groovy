@@ -1,20 +1,21 @@
 
-enum HandStrength {
-  HIGH_CARD(1,"high card")
-  ,PAIR(2,"pair")
-  ,TWO_PAIRS(3,"two pairs")
-  ,THREE_OF_A_KIND(4,"three of a kind")
-  ,STRAIGHT(5,"straight")
-  ,FLUSH(6,"flush")
-  ,FULL_HOUSE(7,"full house")
-  ,FOUR_OF_A_KIND(8,"four of a kind")
-  ,STRAIGHT_FLUSH(9,"straight flush")
+enum HandStrength{ 
+  HIGH_CARD("high card")
+  ,PAIR("pair")
+  ,TWO_PAIRS("two pairs")
+  ,THREE_OF_A_KIND("three of a kind")
+  ,STRAIGHT("straight")
+  ,FLUSH("flush")
+  ,FULL_HOUSE("full house")
+  ,FOUR_OF_A_KIND("four of a kind")
+  ,STRAIGHT_FLUSH("straight flush")
   
-  int value
+  
   String display
   
-  HandStrength(value, display){
-    this.value = value
+  HandStrength(display){
+
     this.display = display
   }
+  
 }

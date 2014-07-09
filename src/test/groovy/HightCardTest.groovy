@@ -1,4 +1,4 @@
-import org.junit.Test;
+import org.junit.Test
 
 
 class HightCardTest {
@@ -7,16 +7,15 @@ class HightCardTest {
   void should_be_relevant_all_of_the_time(){
     assert new HighCard(new Hand(["9C","8H"])).relevant
   }
+  
+  @Test
+  void should_have_proper_hand_strength(){
+    assert (new HighCard(new Hand(["9C","8H"]))).handStrength == HandStrength.HIGH_CARD
+  }
 
   @Test
   void should_be_relevant_all_of_the_time2(){
     assert new HighCard(new Hand(["9C","8H"])).relevant
-  }
-
-    
-  @Test
-  void should_default_to_hand_strength_for_comparison(){
-    assert new HighCard(new Hand(["9C","8H"])) < new Pair(new Hand(["7H","7D"])) 
   }
     
   @Test

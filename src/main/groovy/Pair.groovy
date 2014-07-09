@@ -3,33 +3,29 @@ import groovy.transform.ToString
 class Pair 
   implements ScoringHand{
   
-  def handScore = 2
-  HandStrength getHandStrength(){HandStrength.PAIR}
+  HandStrength handStrength = HandStrength.PAIR
   boolean relevant=false
   
-  def hand
-  def rankMap = [:]
-  def ranksAsPairs
+  def rank
 
   Pair(hand){
-    this.hand=hand
+    def rankMap = new OfAKind(hand).rankMap
     
-    hand.cards.each{ card-> 
-      if( ! rankMap."${card.rank}" ) rankMap."${card.rank}" = 0
-      rankMap."${card.rank}"++
+    def ranksWithMultiple = rankMap.findAll{ k, v -> v > 1 }
+    def ranksAsPairs = rankMap.findAll{ k, v -> v == 2 }
+    
+    if (ranksAsPairs.size() == 1 && ranksWithMultiple.size() == 1){
+      relevant=true
+      rank = ranksAsPairs.keySet()[0]
     }
-    ranksAsPairs = rankMap.findAll{ k, v -> v == 2 }
-    if (ranksAsPairs.size() == 1 ) relevant=true
+    
   }
   
   int compareTo(altObj){
     
     if (! relevant) throw new ComparisonNotPossibleException()
     
-    if( this.class != altObj.class )
-      return this.handStrength.value.compareTo(altObj.handStrength.value)
-    
-    this.ranksAsPairs.keySet()[0].compareTo(altObj.ranksAsPairs.keySet()[0]) 
+    this.rank.compareTo(altObj.rank) 
   }
 
 }
