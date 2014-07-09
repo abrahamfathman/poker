@@ -13,7 +13,7 @@ class PokerHand
     // Straight Flush
     scoringHands << new FourOfAKind(this)
     // Full House
-    // Flush
+    scoringHands << new Flush(this)
     scoringHands << new Straight(this)
     scoringHands << new ThreeOfAKind(this)
     scoringHands << new TwoPairs(this)
