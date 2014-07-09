@@ -54,6 +54,15 @@ class PokerHandTest {
     assert scoringHands[0] instanceof FourOfAKind
     assert scoringHands[1] instanceof HighCard
   }
+  
+  @Test
+  void should_create_scoring_hands_for_straight_and_high_card(){
+    def pokerHand = new PokerHand(["10H","JD","QC","9S","8C"])
+    def scoringHands = pokerHand.scoringHands
+    assert 2 == scoringHands.size()
+    assert scoringHands[0] instanceof Straight
+    assert scoringHands[1] instanceof HighCard
+  }
 
   
 }

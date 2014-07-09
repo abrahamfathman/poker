@@ -6,26 +6,27 @@ class RankTest {
   @Test
   void should_have_the_thirteen_ranks(){
     def ranks = Rank.values()
-    testRank "2", "2", ranks
-    testRank "3", "3", ranks
-    testRank "4", "4", ranks
-    testRank "5", "5", ranks
-    testRank "6", "6", ranks
-    testRank "7", "7", ranks
-    testRank "8", "8", ranks
-    testRank "9", "9", ranks
-    testRank "10", "10", ranks
-    testRank "J", "Jack", ranks
-    testRank "Q", "Queen", ranks
-    testRank "K", "King", ranks
-    testRank "A", "Ace", ranks
+    testRank "2", "2", 2, ranks
+    testRank "3", "3", 3, ranks
+    testRank "4", "4", 4, ranks
+    testRank "5", "5", 5, ranks
+    testRank "6", "6", 6, ranks
+    testRank "7", "7", 7, ranks
+    testRank "8", "8", 8, ranks
+    testRank "9", "9", 9, ranks
+    testRank "10", "10", 10, ranks
+    testRank "J", "Jack", 11, ranks
+    testRank "Q", "Queen", 12, ranks
+    testRank "K", "King", 13, ranks
+    testRank "A", "Ace", 14, ranks
     
     assert ranks.size() == 13
   }
   
-  void testRank( shortCode, display, ranks ){
+  void testRank( shortCode, display, value, ranks ){
     def rank = "R${shortCode}" as Rank
     assert true == ranks.contains( rank )
+    assert rank.value == value
     assert rank.shortCode == shortCode
     assert rank.display == display
   }
