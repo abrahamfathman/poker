@@ -1,14 +1,15 @@
 
 class Game {
 
-  def pokerHands
+  
+
+  def winner
+  def winningReason
   
   Game(pokerHands){
-    this.pokerHands = pokerHands
+    winner = pokerHands.sort()[-1]
+    
   }
   
-  def winner(){
-    pokerHands.sort()[-1]
-  }
   
 }
