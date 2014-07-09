@@ -74,6 +74,15 @@ class PokerHandTest {
   }
   
   @Test
+  void should_create_scoring_hands_for_full_house_and_high_card(){
+    def pokerHand = new PokerHand(["10H","10D","10S","9H","9C"])
+    def scoringHands = pokerHand.scoringHands
+    assert 2 == scoringHands.size()
+    assert scoringHands[0] instanceof FullHouse
+    assert scoringHands[1] instanceof HighCard
+  }
+  
+  @Test
   void should_create_scoring_hands_for_straight_flush_and_flush_and_high_card(){
     def pokerHand = new PokerHand(["10H","JH","7H","9H","8H"])
     def scoringHands = pokerHand.scoringHands
