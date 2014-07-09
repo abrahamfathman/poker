@@ -10,7 +10,7 @@ class PokerHand
   }
   
   void calculateScoringHands(){
-    // Straight Flush
+    scoringHands << new StraightFlush(this)
     scoringHands << new FourOfAKind(this)
     // Full House
     scoringHands << new Flush(this)
