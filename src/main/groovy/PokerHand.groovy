@@ -10,6 +10,7 @@ class PokerHand
   }
   
   void calculateScoringHands(){
+    scoringHands << new ThreeOfAKind(this)
     scoringHands << new TwoPairs(this)
     scoringHands << new Pair(this)
     scoringHands << new HighCard(this)

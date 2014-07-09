@@ -10,13 +10,13 @@ class Pair
 
   Pair(hand){
     def rankMap = new OfAKind(hand).rankMap
-    
+
     def ranksWithMultiple = rankMap.findAll{ k, v -> v > 1 }
-    def ranksAsPairs = rankMap.findAll{ k, v -> v == 2 }
+    def ranksAsMatching = rankMap.findAll{ k, v -> v == getOfAKindMatch() }
     
-    if (ranksAsPairs.size() == 1 && ranksWithMultiple.size() == 1){
+    if (ranksAsMatching.size() == 1 && ranksWithMultiple.size() == 1){
       relevant=true
-      rank = ranksAsPairs.keySet()[0]
+      rank = ranksAsMatching.keySet()[0]
     }
     
   }
@@ -27,5 +27,7 @@ class Pair
     
     this.rank.compareTo(altObj.rank) 
   }
+  
+  int getOfAKindMatch(){2}
 
 }
