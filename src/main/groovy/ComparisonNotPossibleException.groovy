@@ -1,0 +1,5 @@
+
+class ComparisonNotPossibleException
+  extends RuntimeException{
+
+}

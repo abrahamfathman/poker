@@ -1,18 +1,10 @@
 import java.util.List;
 
 
-abstract class ScoringHand
-  implements Comparable {
+ interface ScoringHand
+  extends Comparable {
     
-    abstract int getHandScore()
-    def hand
-    
-    ScoringHand(hand){
-      this.hand = hand
-    }
-    
-    int compareTo( altObj ){
-      this.handScore.compareTo(altObj.handScore) 
-    }
+    boolean relevant
+    HandStrength getHandStrength()
 
 }

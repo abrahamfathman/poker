@@ -1,14 +1,18 @@
 
 class HighCard
-  extends ScoringHand{
+  implements ScoringHand{
   
-  int getHandScore(){1}
+  HandStrength getHandStrength(){HandStrength.HIGH_CARD}
+  boolean relevant=true
+  
+  def hand
 
-  HighCard(hand){super(hand)}
+  HighCard(hand){this.hand=hand}
 
   int compareTo(altObj){
-    def super_thought = super.compareTo(altObj)
-    if( super_thought != 0 ) return super_thought
+    
+    if( this.class != altObj.class )
+      return this.handStrength.value.compareTo(altObj.handStrength.value)
     
     def sortedCards = this.hand.cards.sort().reverse()
     def altSortedCards = altObj.hand.cards.sort().reverse()

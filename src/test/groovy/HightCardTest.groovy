@@ -4,7 +4,18 @@ import org.junit.Test;
 class HightCardTest {
 
   @Test
-  void should_default_to_ScoringHand_for_score(){
+  void should_be_relevant_all_of_the_time(){
+    assert new HighCard(new Hand(["9C","8H"])).relevant
+  }
+
+  @Test
+  void should_be_relevant_all_of_the_time2(){
+    assert new HighCard(new Hand(["9C","8H"])).relevant
+  }
+
+    
+  @Test
+  void should_default_to_hand_strength_for_comparison(){
     assert new HighCard(new Hand(["9C","8H"])) < new Pair(new Hand(["7H","7D"])) 
   }
     

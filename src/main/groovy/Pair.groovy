@@ -1,33 +1,34 @@
 import groovy.transform.ToString
 
 class Pair 
-  extends ScoringHand{
+  implements ScoringHand{
   
   def handScore = 2
-  int getHandScore(){handScore}
+  HandStrength getHandStrength(){HandStrength.PAIR}
+  boolean relevant=false
   
+  def hand
   def rankMap = [:]
   def ranksAsPairs
 
   Pair(hand){
-    super(hand)
+    this.hand=hand
     
     hand.cards.each{ card-> 
-      if( rankMap."${card.rank}" == null ){
-        rankMap."${card.rank}" = 0
-      }
+      if( ! rankMap."${card.rank}" ) rankMap."${card.rank}" = 0
       rankMap."${card.rank}"++
     }
     ranksAsPairs = rankMap.findAll{ k, v -> v == 2 }
-    if (ranksAsPairs.size() != 1 )
-      handScore = 0
+    if (ranksAsPairs.size() == 1 ) relevant=true
   }
   
   int compareTo(altObj){
-    def super_thought = super.compareTo(altObj)
-    if( super_thought != 0 ) return super_thought
     
-    // Compare the pairs ranks
+    if (! relevant) throw new ComparisonNotPossibleException()
+    
+    if( this.class != altObj.class )
+      return this.handStrength.value.compareTo(altObj.handStrength.value)
+    
     this.ranksAsPairs.keySet()[0].compareTo(altObj.ranksAsPairs.keySet()[0]) 
   }
 
