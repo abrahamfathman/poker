@@ -1,11 +1,14 @@
 
 
 class PokerHand 
-  extends Hand{
+  extends Hand
+  implements Comparable{
   def scoringHands = []
+  def playerName
 
-  PokerHand(List<String> cards){
+  PokerHand(List<String> cards, playerName="Player1"){
     super(cards)
+    this.playerName = playerName
     calculateScoringHands()
   }
   
@@ -22,5 +25,15 @@ class PokerHand
     scoringHands = scoringHands.grep{ it-> it.relevant }
   }
   
+  int compareTo( altObj ){
+    def handStrengthCompare = this.scoringHands[0].handStrength.compareTo(altObj.scoringHands[0].handStrength)
+    if( handStrengthCompare != 0 ) return handStrengthCompare
+    
+    for( int x = 0; x < scoringHands.size(); x++ ){
+       def compare = scoringHands[x].compareTo(altObj.scoringHands[x])
+       if (compare != 0) return compare 
+    }
+      
+  }
   
 }
