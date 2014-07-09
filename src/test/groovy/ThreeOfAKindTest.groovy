@@ -3,7 +3,7 @@ import org.junit.Test;
 
 class ThreeOfAKindTest {
   @Test
-  void should_be_relevant_when_two_pairs_are_present(){
+  void should_be_relevant_when_three_of_a_kind_are_present(){
     def hand = new Hand(["2H","6D","AC","6S","6C"])
     def threeOfAKind = new ThreeOfAKind(hand)
     assert threeOfAKind.relevant
