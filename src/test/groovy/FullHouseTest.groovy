@@ -11,6 +11,11 @@ class FullHouseTest {
   void should_have_proper_hand_strength(){
     assert new FullHouse(new Hand(["QH","QC","QH","9H","9C"])).handStrength == HandStrength.FULL_HOUSE
   }
+  
+  @Test
+  void should_be_named(){
+    assert new FullHouse(new Hand(["QH","QC","QH","9H","9C"])).name == "full house"
+  }
 
   @Test
   void should_not_be_relevant_when_flush_is_not_present(){

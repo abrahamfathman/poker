@@ -4,6 +4,7 @@ implements ScoringHand {
 
   HandStrength handStrength = HandStrength.FULL_HOUSE
   boolean relevant=false
+  String name = "full house"
 
   def rankHigh
 

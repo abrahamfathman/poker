@@ -17,8 +17,10 @@ class Game {
   }
   
   static void main( String[] args ){
-    System.in.eachLine { line ->
-      System.out << new Game(lineToPokerHands(line)).output
+    new File("input.txt").eachLine { line ->
+      println "Input: $line"
+      println "Output: ${new Game(lineToPokerHands(line)).output()}"
+      println ""
     }
   }
   
