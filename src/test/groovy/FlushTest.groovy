@@ -12,6 +12,11 @@ class FlushTest {
   void should_have_proper_hand_strength(){
     assert new Flush(new Hand(["3H","2D","5C","4S","6C"])).handStrength == HandStrength.FLUSH
   }
+  
+  @Test
+  void should_name_hand(){
+    assert new Flush(new Hand([])).name == "flush"
+  }
 
   @Test
   void should_not_be_relevant_when_flush_is_not_present(){

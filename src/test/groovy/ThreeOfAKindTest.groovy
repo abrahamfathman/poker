@@ -24,6 +24,11 @@ class ThreeOfAKindTest {
   }
   
   @Test
+  void should_name_hand(){
+    assert new ThreeOfAKind(new Hand(["9C","8H", "9S", "9D", "3C"])).name == "three of a kind" 
+  }
+  
+  @Test
   void should_not_be_relevant_when_three_of_a_kind_is_not_present(){
     def hand = new Hand(["10H","3D","2C","6S","7C"])
     def threeOfAKind = new ThreeOfAKind(hand)

@@ -2,6 +2,7 @@
 class StraightFlush {
   HandStrength handStrength = HandStrength.STRAIGHT_FLUSH
   boolean relevant=false
+  String name="straight flush"
 
   def straight
   def rankHigh

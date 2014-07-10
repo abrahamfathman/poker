@@ -3,6 +3,7 @@ class Flush {
 
   HandStrength handStrength = HandStrength.FLUSH
   boolean relevant=false
+  String name="flush"
 
   Flush(hand){
     def isFlush = true

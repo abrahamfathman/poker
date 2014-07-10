@@ -5,6 +5,7 @@ class Pair
   
   HandStrength handStrength = HandStrength.PAIR
   boolean relevant=false
+  String name="pair"
   
   def rank
 
@@ -25,7 +26,7 @@ class Pair
     
     if (! relevant) throw new ComparisonNotPossibleException()
     
-    this.rank.compareTo(altObj.rank) 
+    this.rank.compareTo(altObj.rank)
   }
   
   int getOfAKindMatch(){2}

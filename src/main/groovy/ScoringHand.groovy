@@ -5,6 +5,7 @@ import java.util.List;
   extends Comparable {
     
     boolean relevant
-    HandStrength getHandStrength()
+    HandStrength handStrength
+    String name
 
 }

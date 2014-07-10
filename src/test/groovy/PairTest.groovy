@@ -23,7 +23,11 @@ class PairTest {
     def pair = new Pair(hand)
     assert Rank.R6 == pair.rank
   }
-
+  
+  @Test
+  void should_name_hand(){
+    assert new Pair(new Hand(["AC","AH"])).name == "pair"
+  }
 
   @Test
   void should_not_be_relevant_when_pair_is_not_present(){
@@ -73,6 +77,7 @@ class PairTest {
     assert pair1 < pair2 
     assert pair2 > pair1
   }
+
   
   @Test
   void should_not_consider_one_higher_than_the_other(){

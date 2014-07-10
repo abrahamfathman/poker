@@ -4,6 +4,7 @@ class TwoPairs
  
   HandStrength handStrength = HandStrength.TWO_PAIRS
   boolean relevant=false
+  String name = "two pairs"
   
   def rankHigh
   def rankLow

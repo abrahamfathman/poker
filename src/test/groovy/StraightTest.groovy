@@ -16,6 +16,11 @@ class StraightTest {
     def straight = new Straight(hand)
     assert straight.handStrength == HandStrength.STRAIGHT
   }
+  
+  @Test
+  void should_name_hand(){
+    assert new Straight(new Hand(["9C","8H","7C","10D","JC"])).name == "straight"
+  }
 
   @Test
   void should_not_be_relevant_when_straight_is_not_present(){

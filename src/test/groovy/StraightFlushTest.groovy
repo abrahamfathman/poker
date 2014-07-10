@@ -12,6 +12,12 @@ class StraightFlushTest {
   void should_have_proper_hand_strength(){
     assert new StraightFlush(new Hand(["3H","2D","5C","4S","6C"])).handStrength == HandStrength.STRAIGHT_FLUSH
   }
+  
+  @Test
+  void should_name_hand(){
+    assert new StraightFlush(new Hand(["QH","8D","8C","9S","10C"])).name == "straight flush"
+  }
+
 
   @Test
   void should_not_be_relevant_when_flush_is_not_present(){

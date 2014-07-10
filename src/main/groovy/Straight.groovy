@@ -1,9 +1,10 @@
 
 class Straight
-implements ScoringHand {
+  implements ScoringHand {
 
   HandStrength handStrength = HandStrength.STRAIGHT
   boolean relevant=false
+  String name="straight"
 
   def rankHigh
 

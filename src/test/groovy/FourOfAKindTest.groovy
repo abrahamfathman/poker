@@ -15,5 +15,11 @@ class FourOfAKindTest {
     def fourOfAKind = new FourOfAKind(hand)
     assert fourOfAKind.handStrength == HandStrength.FOUR_OF_A_KIND
   }
+  
+  @Test
+  void should_name_hand(){
+    assert new FourOfAKind(new Hand(["9C","8H"])).name == "four of a kind"
+  }
+
 
 }
